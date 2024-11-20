@@ -1,33 +1,8 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 a {
@@ -35,8 +10,62 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+body {
+  color: #9fadbd;
+  background-color: #0b1622;
+}
+
+button {
+  color: #9fadbd;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+input {
+  color: #000;
+  border: none;
+}
+
+svg path {
+  fill: #9fadbd;
+}
+
+input[type="number"] {
+  appearance: textfield;
+  /* Remove Firefox default browser style */
+  outline: none;
+}
+
+/* Remove WebKit default browser style */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+input[type="range"] {
+  cursor: pointer;
+  appearance: none;
+  /* Remove WebKit default browser style */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  cursor: pointer;
+  appearance: none;
+  /* Remove WebKit default browser style */
+  background-color: #fff;
+}
+
+input[type="range"]::-moz-range-thumb {
+  cursor: pointer;
+  border: none;
+  /* Remove Firefox default browser style */
+  background-color: #fff;
+}
+
+@media screen and (max-width: 768px) {
   html {
-    color-scheme: dark;
+    font-size: 10px;
   }
 }
