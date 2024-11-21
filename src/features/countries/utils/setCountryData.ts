@@ -12,6 +12,7 @@ export const setCountryData = async ({ country, dispatch }: SetCountryData) => {
       country: country,
       url: "https://countriesnow.space/api/v0.1/countries/population",
     });
+    console.log(countryData);
     dispatch({
       type: "set-population-counts",
       payload: countryData.populationCounts,
