@@ -1,18 +1,21 @@
 "use client";
 
 import { Search } from "@/components";
-import { useCountryContext } from "@/features/countries";
+import { useCountryContext, setCountryData } from "@/features/countries";
 import { useState, ChangeEvent, FormEvent } from "react";
 
 export const CountrySearch = () => {
   const [searchValue, setSearchValue] = useState("");
-  const { dispatch } = useCountryContext();
+  const { state, dispatch } = useCountryContext();
 
   const searchSubmitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (searchValue.length > 0) {
       dispatch({ type: "set-country", payload: searchValue });
+      // todo: await this
+      setCountryData({ country: searchValue, dispatch });
+      console.log(state);
     }
 
     setSearchValue("");
