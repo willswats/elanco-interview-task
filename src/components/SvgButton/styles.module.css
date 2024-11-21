@@ -1,0 +1,18 @@
+.svg-button svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+}
+
+.svg-button:hover svg path {
+  fill: #37a1d9;
+}
+
+@media screen and (max-width: 768px) {
+  .svg-button svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}

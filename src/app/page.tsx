@@ -1,19 +1,33 @@
 // todo: specify return for these
-import { fetchCitiesAndPopulation } from "@/utils/fetchCitiesAndPopulation";
-import { fetchCountriesAndCapital } from "@/utils/fetchCountriesAndCapital";
-import { fetchSingleCountryWithFlag } from "@/utils/fetchSingleCountryWithFlag";
+import { fetchWithCountry, CountrySearch } from "@/features/countries";
 
 export default async function Home() {
-  const countriesAndCapitals = await fetchCountriesAndCapital();
+  // const { state } = useCountryContext();
+
+  const countriesAndCapitals = await fetchWithCountry({
+    url: "https://countriesnow.space/api/v0.1/countries/capital",
+    country: "Nigeria",
+  });
+
+  const citiesAndPopulation = await fetchWithCountry({
+    url: "https://countriesnow.space/api/v0.1/countries/population",
+    country: "Nigeria",
+  });
+
+  const singleCountryWithFlag = await fetchWithCountry({
+    url: "https://countriesnow.space/api/v0.1/countries/flag/images",
+    country: "Nigeria",
+  });
+
   console.log(countriesAndCapitals);
 
-  const singleCountryWithFlag = await fetchSingleCountryWithFlag({
-    iso2: "NG",
-  });
   console.log(singleCountryWithFlag);
 
-  const citiesAndPopulation = await fetchCitiesAndPopulation();
   console.log(citiesAndPopulation);
 
-  return <div>test</div>;
+  return (
+    <div>
+      <CountrySearch />
+    </div>
+  );
 }

@@ -1,10 +1,9 @@
-interface fetchSingleCountryWithFlag {
-  iso2: string;
+interface fetchWithCountry {
+  url: string;
+  country: string;
 }
 
-export const fetchSingleCountryWithFlag = async ({
-  iso2,
-}: fetchSingleCountryWithFlag) => {
+export const fetchWithCountry = async ({ country, url }: fetchWithCountry) => {
   interface options {
     method: string;
     headers: {
@@ -20,13 +19,10 @@ export const fetchSingleCountryWithFlag = async ({
       "Content-Type": "application/json",
       Accept: "application/json",
     },
-    body: `{"iso2": "${iso2}"}`,
+    body: `{"country": "${country}"}`,
   };
 
-  const response = await fetch(
-    "https://countriesnow.space/api/v0.1/countries/flag/images",
-    options,
-  );
+  const response = await fetch(url, options);
   const data = await response.json();
 
   return data;
