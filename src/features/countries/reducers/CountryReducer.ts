@@ -1,6 +1,6 @@
 export interface populationCounts {
   year: number;
-  population: number;
+  value: number;
 }
 
 export interface State {
