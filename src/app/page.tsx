@@ -1,4 +1,3 @@
-// todo: specify return for these
 import { CountrySearch, CountryPopulation } from "@/features/countries";
 
 export default function Home() {

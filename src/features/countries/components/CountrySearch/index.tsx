@@ -1,7 +1,7 @@
 "use client";
 
 import { Search } from "@/components";
-import { useCountryContext, fetchWithCountry } from "@/features/countries";
+import { useCountryContext, setCountryData } from "@/features/countries";
 import { useState, ChangeEvent, FormEvent } from "react";
 
 export const CountrySearch = () => {
@@ -12,20 +12,7 @@ export const CountrySearch = () => {
     event.preventDefault();
 
     if (searchValue.length > 0) {
-      try {
-        const countryData = await fetchWithCountry({
-          country: searchValue,
-          url: "https://countriesnow.space/api/v0.1/countries/population",
-        });
-        dispatch({ type: "set-country", payload: searchValue });
-        dispatch({
-          type: "set-population-counts",
-          payload: countryData.data.populationCounts,
-        });
-      } catch (e) {
-        const error = e as Error;
-        dispatch({ type: "set-error-message", payload: error.message });
-      }
+      setCountryData({ searchValue, dispatch });
     }
     setSearchValue("");
   };
