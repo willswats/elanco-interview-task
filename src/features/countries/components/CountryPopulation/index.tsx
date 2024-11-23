@@ -11,8 +11,8 @@ export const CountryPopulation = () => {
         <h1>Error: {state.errorMessage}</h1>
       ) : (
         <>
-          <h1>{state.country}</h1>
-          {state.populationCounts.map((obj: populationCounts) => (
+          <h1>{state.countryData.country}</h1>
+          {state.countryData.populationCounts.map((obj: populationCounts) => (
             <p key={obj.year}>
               {obj.year} - {obj.value}
             </p>

@@ -3,46 +3,48 @@ export interface populationCounts {
   value: number;
 }
 
-export interface State {
+export interface countryData {
   country: string;
   populationCounts: populationCounts[];
+}
+
+export interface State {
+  countryData: countryData;
   errorMessage: string;
 }
 
 export const initialState: State = {
-  country: "",
-  populationCounts: [],
+  countryData: {
+    country: "",
+    populationCounts: [],
+  },
   errorMessage: "",
 };
 
-export type SetCountry = {
-  type: "set-country";
-  payload: string;
-};
-
-export type SetPopulationCounts = {
-  type: "set-population-counts";
-  payload: populationCounts[];
+export type SetCountryData = {
+  type: "set-country-data";
+  payload: {
+    country: string;
+    populationCounts: populationCounts[];
+  };
 };
 
 export type SetErrorMessage = { type: "set-error-message"; payload: string };
 
-export type CountryActions = SetCountry | SetPopulationCounts | SetErrorMessage;
+export type CountryActions = SetCountryData | SetErrorMessage;
 
 export const reducer = (
   state: State,
   { type, payload }: CountryActions,
 ): State => {
   switch (type) {
-    case "set-country":
+    case "set-country-data":
       return {
         ...state,
-        country: payload,
-      };
-    case "set-population-counts":
-      return {
-        ...state,
-        populationCounts: payload,
+        countryData: {
+          country: payload.country,
+          populationCounts: payload.populationCounts,
+        },
       };
     case "set-error-message":
       return {

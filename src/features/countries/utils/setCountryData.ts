@@ -23,11 +23,19 @@ export const setCountryData = async ({
       url: "https://countriesnow.space/api/v0.1/countries/population",
     });
 
+    // const flagData = await fetchWithCountry({
+    //   country: searchValue,
+    //   url: "https://countriesnow.space/api/v0.1/countries/flag/images",
+    // });
+    // "https://countriesnow.space/api/v0.1/countries/capital"
+
     if (!countryData.error) {
-      dispatch({ type: "set-country", payload: searchValue });
       dispatch({
-        type: "set-population-counts",
-        payload: countryData.data.populationCounts,
+        type: "set-country-data",
+        payload: {
+          country: countryData.data.country,
+          populationCounts: countryData.data.populationCounts,
+        },
       });
     } else {
       dispatch({ type: "set-error-message", payload: countryData.msg });

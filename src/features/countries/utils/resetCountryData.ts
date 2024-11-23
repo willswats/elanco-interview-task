@@ -6,10 +6,12 @@ interface resetWeatherData {
 }
 
 export const resetCountryData = ({ dispatch }: resetWeatherData) => {
-  dispatch({ type: "set-country", payload: "" });
   dispatch({
-    type: "set-population-counts",
-    payload: [],
+    type: "set-country-data",
+    payload: {
+      country: "",
+      populationCounts: [],
+    },
   });
   dispatch({ type: "set-error-message", payload: "" });
 };
