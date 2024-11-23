@@ -1,0 +1,34 @@
+.statistic {
+  display: flex;
+  background-color: #151f2e;
+  border-radius: 20px;
+  padding: 1rem;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.statistic__top {
+  display: flex;
+}
+
+.statistic__svg svg {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.25rem;
+}
+
+.statistic__statistic {
+  color: #37a1d9;
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .statistic__svg svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .statistic__statistic {
+    font-size: 1.5rem;
+  }
+}

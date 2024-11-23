@@ -20,9 +20,6 @@ export const CountryPopulationLineChart = ({
     dataArray.push(populationCount.value);
   });
 
-  console.log(labelArray);
-  console.log(dataArray);
-
   return (
     <div className={styles["line-chart-population-counts"]}>
       <h2>Population Counts</h2>

@@ -26,7 +26,6 @@ export const setCountryData = async ({
       country: searchValue,
       url: "https://countriesnow.space/api/v0.1/countries/flag/images",
     });
-    // "https://countriesnow.space/api/v0.1/countries/capital"
 
     if (!countryData.error) {
       dispatch({
