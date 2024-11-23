@@ -8,6 +8,8 @@ import {
 
 import SvgSearch from "public/assets/search-line.svg";
 
+import styles from "./styles.module.css";
+
 export const CountryPopulation = () => {
   const { state } = useCountryContext();
 
@@ -31,18 +33,20 @@ export const CountryPopulation = () => {
             state.countryData.flag &&
             state.countryData.populationCounts.length > 0 && (
               <>
-                <h1>{state.countryData.country}</h1>
+                <div className={styles["country-population__country"]}>
+                  <h1>{state.countryData.country}</h1>
+                  <Image
+                    src={state.countryData.flag}
+                    width={200}
+                    height={100}
+                    alt="Flag"
+                    priority={true}
+                  />
+                </div>
                 <Statistic
                   statistic={lastPopulationCountsValue}
                   text={`Population in latest year (${lastPopulationCountsYear})`}
                   svg={<SvgSearch />}
-                />
-                <Image
-                  src={state.countryData.flag}
-                  width={200}
-                  height={200}
-                  alt="Flag"
-                  priority={true}
                 />
                 <CountryPopulationLineChart
                   label="Population Counts"
