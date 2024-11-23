@@ -2,7 +2,7 @@ import { ChangeEvent, FormEvent } from "react";
 
 import { SvgButton } from "@/components/SvgButton";
 
-import SvgSearch from "../../../public/assets/search-line.svg";
+import SvgSearch from "public/assets/search-line.svg";
 
 import styles from "./styles.module.css";
 
