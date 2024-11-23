@@ -11,4 +11,5 @@ export const resetCountryData = ({ dispatch }: resetWeatherData) => {
     type: "set-population-counts",
     payload: [],
   });
+  dispatch({ type: "set-error-message", payload: "" });
 };

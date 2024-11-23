@@ -16,15 +16,22 @@ export const setCountryData = async ({
 }: setWeatherData) => {
   try {
     resetCountryData({ dispatch });
+
+    searchValue = searchValue.toLowerCase();
     const countryData = await fetchWithCountry({
       country: searchValue,
       url: "https://countriesnow.space/api/v0.1/countries/population",
     });
-    dispatch({ type: "set-country", payload: searchValue });
-    dispatch({
-      type: "set-population-counts",
-      payload: countryData.data.populationCounts,
-    });
+
+    if (!countryData.error) {
+      dispatch({ type: "set-country", payload: searchValue });
+      dispatch({
+        type: "set-population-counts",
+        payload: countryData.data.populationCounts,
+      });
+    } else {
+      dispatch({ type: "set-error-message", payload: countryData.msg });
+    }
   } catch (e) {
     const error = e as Error;
     dispatch({ type: "set-error-message", payload: error.message });
