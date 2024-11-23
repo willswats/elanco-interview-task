@@ -1,7 +1,10 @@
 "use client";
 import Image from "next/image";
 
-import { useCountryContext, populationCounts } from "@/features/countries";
+import {
+  useCountryContext,
+  CountryPopulationLineChart,
+} from "@/features/countries";
 
 export const CountryPopulation = () => {
   const { state } = useCountryContext();
@@ -22,11 +25,12 @@ export const CountryPopulation = () => {
             />
           )}
           <h1>{state.countryData.country}</h1>
-          {state.countryData.populationCounts.map((obj: populationCounts) => (
-            <p key={obj.year}>
-              {obj.year} - {obj.value}
-            </p>
-          ))}
+          {state.countryData.populationCounts.length > 0 && (
+            <CountryPopulationLineChart
+              label="Population Counts"
+              populationCounts={state.countryData.populationCounts}
+            />
+          )}
         </>
       )}
     </>
