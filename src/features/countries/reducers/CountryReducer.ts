@@ -5,6 +5,7 @@ export interface populationCounts {
 
 export interface countryData {
   country: string;
+  flag: string;
   populationCounts: populationCounts[];
 }
 
@@ -16,6 +17,7 @@ export interface State {
 export const initialState: State = {
   countryData: {
     country: "",
+    flag: "",
     populationCounts: [],
   },
   errorMessage: "",
@@ -25,6 +27,7 @@ export type SetCountryData = {
   type: "set-country-data";
   payload: {
     country: string;
+    flag: string;
     populationCounts: populationCounts[];
   };
 };
@@ -43,6 +46,7 @@ export const reducer = (
         ...state,
         countryData: {
           country: payload.country,
+          flag: payload.flag,
           populationCounts: payload.populationCounts,
         },
       };

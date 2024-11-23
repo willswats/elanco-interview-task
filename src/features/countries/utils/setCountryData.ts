@@ -22,11 +22,10 @@ export const setCountryData = async ({
       country: searchValue,
       url: "https://countriesnow.space/api/v0.1/countries/population",
     });
-
-    // const flagData = await fetchWithCountry({
-    //   country: searchValue,
-    //   url: "https://countriesnow.space/api/v0.1/countries/flag/images",
-    // });
+    const flagData = await fetchWithCountry({
+      country: searchValue,
+      url: "https://countriesnow.space/api/v0.1/countries/flag/images",
+    });
     // "https://countriesnow.space/api/v0.1/countries/capital"
 
     if (!countryData.error) {
@@ -34,6 +33,7 @@ export const setCountryData = async ({
         type: "set-country-data",
         payload: {
           country: countryData.data.country,
+          flag: flagData.data.flag,
           populationCounts: countryData.data.populationCounts,
         },
       });
