@@ -31,7 +31,7 @@ The file structure follows a similar structure to [Bullet Proof React](https://g
 Overview:
 
 - `src/app` - contains React components related to pages on the site.
-- `src/components` - contains general React components, `index.ts` is used here to export all components, which allows you to import all components from one route.
+- `src/components` - contains general React components, `index.ts` is used here to export all components, which allows you to import all components from one location.
 - `src/features/countries` - contains code related to countries, `index.ts` is used here to export everything inside `features/countries`.
 
 Each component is a folder which has a corresponding `index.tsx` and optionally a `styles.module.css`.
