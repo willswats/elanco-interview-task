@@ -35,3 +35,7 @@ Each component is a folder which has a corresponding `index.tsx` and optionally 
 ## Naming
 
 For CSS naming I follow [BEM](https://getbem.com/naming/).
+
+## Acknowledgements
+
+The SVGs are from [Remix Icon](https://remixicon.com/) and were converted into React components with [SVGR Playground](https://react-svgr.com/playground/?typescript=true).
