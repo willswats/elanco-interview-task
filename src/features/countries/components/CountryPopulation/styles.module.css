@@ -1,12 +1,38 @@
+.country-population__text {
+  padding: 1rem;
+  font-size: 1.5rem;
+  background-color: #2a2a2a;
+  border-radius: 25px;
+}
+
+.country-population__flag {
+  border-radius: 25px;
+}
+
+.country-population__loading {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  background-color: #2a2a2a;
+  border-radius: 25px;
+}
+
 .country-population__country {
   display: flex;
   background-color: #2a2a2a;
   border-radius: 25px;
-  margin: 1rem 0;
+  margin-bottom: 1rem;
   padding: 1rem;
 }
 
+.country-population__country-end {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
 .country-population__country h1 {
+  font-size: 2rem;
   text-decoration: underline;
 }
 
@@ -19,31 +45,4 @@
   width: 2rem;
   height: 2rem;
   margin-right: 0.25rem;
-}
-
-.country-population__instructions {
-  margin-top: 1rem;
-  padding: 1rem;
-  font-size: 1.5rem;
-  background-color: #2a2a2a;
-  border-radius: 25px;
-}
-
-.country-population__loading {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-  padding: 1rem;
-  background-color: #2a2a2a;
-  border-radius: 25px;
-}
-
-.country-population__country-end {
-  display: flex;
-  justify-content: flex-end;
-  flex-grow: 1;
-}
-
-.country-population__flag {
-  border-radius: 25px;
 }

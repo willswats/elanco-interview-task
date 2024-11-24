@@ -12,65 +12,60 @@ import UserLine from "public/assets/user-line.svg";
 
 export const CountryPopulation = () => {
   const { state } = useCountryContext();
-
-  let lastPopulationCountsYear = "";
-  let lastPopulationCountsValue = "";
-  if (state.countryData.populationCounts.length > 0) {
-    const populationCounts = state.countryData.populationCounts;
-    lastPopulationCountsYear =
-      populationCounts[populationCounts.length - 1].year.toString();
-    lastPopulationCountsValue =
-      populationCounts[populationCounts.length - 1].value.toLocaleString();
-  }
+  const populationCounts = state.countryData.populationCounts;
 
   return (
     <>
-      {!state.countryData.country && !state.loading && (
-        <div className={styles["country-population__instructions"]}>
+      {!state.errorMessage && !state.countryData.country && !state.loading && (
+        <section className={styles["country-population__text"]}>
           Enter a country into the input to find it&apos;s population (e.g
           &quot;Nigeria&quot;).
-        </div>
+        </section>
       )}
 
       {state.loading && (
-        <div className={styles["country-population__loading"]}>
+        <section className={styles["country-population__loading"]}>
           <LoadingIndicator />
-        </div>
+        </section>
       )}
-      {state.errorMessage.length > 0 ? (
-        <h1>Error: {state.errorMessage}</h1>
-      ) : (
+
+      {state.errorMessage.length > 0 && (
+        <section className={styles["country-population__instructions"]}>
+          Error: {state.errorMessage}
+        </section>
+      )}
+
+      {state.countryData.country && (
         <>
-          {state.countryData.country &&
-            state.countryData.flag &&
-            state.countryData.populationCounts.length > 0 && (
-              <>
-                <div className={styles["country-population__country"]}>
-                  <div>
-                    <h1>{state.countryData.country}</h1>
-                    <p>
-                      <UserLine />
-                      {lastPopulationCountsValue}
-                    </p>
-                    Population in latest year ({lastPopulationCountsYear})
-                  </div>
-                  <div className={styles["country-population__country-end"]}>
-                    <Image
-                      className={styles["country-population__flag"]}
-                      src={state.countryData.flag}
-                      width={200}
-                      height={100}
-                      alt="Flag"
-                      priority={true}
-                    />
-                  </div>
-                </div>
-                <CountryPopulationLineChart
-                  label="Population"
-                  populationCounts={state.countryData.populationCounts}
-                />
-              </>
-            )}
+          <section className={styles["country-population__country"]}>
+            <section>
+              <h1>{state.countryData.country}</h1>
+              <p>
+                <UserLine />
+                {populationCounts[
+                  populationCounts.length - 1
+                ].value.toLocaleString()}
+              </p>
+              <span>
+                Population in latest year (
+                {populationCounts[populationCounts.length - 1].year.toString()})
+              </span>
+            </section>
+            <section className={styles["country-population__country-end"]}>
+              <Image
+                className={styles["country-population__flag"]}
+                src={state.countryData.flag}
+                width={200}
+                height={100}
+                alt="Flag"
+                priority={true}
+              />
+            </section>
+          </section>
+          <CountryPopulationLineChart
+            label="Population"
+            populationCounts={state.countryData.populationCounts}
+          />
         </>
       )}
     </>
