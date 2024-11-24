@@ -13,7 +13,7 @@ interface setWeatherData {
 export const setCountryData = async ({
   searchValue,
   dispatch,
-}: setWeatherData) => {
+}: setWeatherData): Promise<void> => {
   try {
     resetCountryData({ dispatch });
     dispatch({ type: "set-loading", payload: true });

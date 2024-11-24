@@ -5,7 +5,7 @@ interface resetWeatherData {
   dispatch: Dispatch<CountryActions>;
 }
 
-export const resetCountryData = ({ dispatch }: resetWeatherData) => {
+export const resetCountryData = ({ dispatch }: resetWeatherData): void => {
   dispatch({
     type: "set-country-data",
     payload: {
