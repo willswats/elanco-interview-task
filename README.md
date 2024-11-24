@@ -9,6 +9,8 @@ A task that I was assigned for an interview with Elanco.
 - [General Information](#general-information)
 - [File Structure](#file-structure)
 - [Naming](#naming)
+- [Install](#install)
+- [Acknowledgements](#acknowledgements)
 <!--toc:end-->
 
 ## General Information
@@ -35,6 +37,13 @@ Each component is a folder which has a corresponding `index.tsx` and optionally 
 ## Naming
 
 For CSS naming I follow [BEM](https://getbem.com/naming/).
+
+## Install
+
+1. Install [pnpm](https://pnpm.io/installation).
+2. `cd` to this projects' directory.
+3. Run `pnpm install` to install the projects' dependencies.
+4. Run `pnpm run dev` to run the server locally.
 
 ## Acknowledgements
 
