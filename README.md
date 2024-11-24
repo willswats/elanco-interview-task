@@ -2,22 +2,36 @@
 
 A task that I was assigned for an interview with Elanco.
 
+## Table of Contents
+
+<!--toc:start-->
+
+- [General Information](#general-information)
+- [File Structure](#file-structure)
+- [Naming](#naming)
+<!--toc:end-->
+
+## General Information
+
+This project was built using `Next.js` and it uses the following API routes to fetch country and population data:
+
+- `https://countriesnow.space/api/v0.1/countries/population`
+- `https://countriesnow.space/api/v0.1/countries/flag/images`
+
+The population data is then displayed in a line chart by using `chart.js` and `react-chartjs-2`.
+
 ## File Structure
 
-Follows a similar structure to [Bullet Proof React](https://github.com/alan2207/bulletproof-react).
+The file structure follows a similar structure to [Bullet Proof React](https://github.com/alan2207/bulletproof-react) as I have used it as a reference for most of my React projects.
+
+Overview:
 
 - `src/app` - contains React components related to pages on the site.
-- `src/components` - contains general React components, `index.ts` is used here to export all components.
+- `src/components` - contains general React components, `index.ts` is used here to export all components, which allows you to import all components from one route.
 - `src/features/countries` - contains code related to countries, `index.ts` is used here to export everything inside `features/countries`.
 
 Each component is a folder which has a corresponding `index.tsx` and optionally a `styles.module.css`.
 
 ## Naming
 
-For CSS naming I have followed [BEM](https://getbem.com/naming/).
-
-## Technologies
-
-- `Next.js` - To build the front-end.
-- `svgr` - To handle SVGs.
-- `chart.js` and `react-chartjs-2` - For the charts.
+For CSS naming I follow [BEM](https://getbem.com/naming/).
