@@ -11,6 +11,7 @@ export interface countryData {
 
 export interface State {
   countryData: countryData;
+  loading: boolean;
   errorMessage: string;
 }
 
@@ -20,6 +21,7 @@ export const initialState: State = {
     flag: "",
     populationCounts: [],
   },
+  loading: false,
   errorMessage: "",
 };
 
@@ -32,9 +34,11 @@ export type SetCountryData = {
   };
 };
 
+export type SetLoading = { type: "set-loading"; payload: boolean };
+
 export type SetErrorMessage = { type: "set-error-message"; payload: string };
 
-export type CountryActions = SetCountryData | SetErrorMessage;
+export type CountryActions = SetCountryData | SetLoading | SetErrorMessage;
 
 export const reducer = (
   state: State,
@@ -49,6 +53,11 @@ export const reducer = (
           flag: payload.flag,
           populationCounts: payload.populationCounts,
         },
+      };
+    case "set-loading":
+      return {
+        ...state,
+        loading: payload,
       };
     case "set-error-message":
       return {

@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { LoadingIndicator } from "@/components";
 import {
   useCountryContext,
   CountryPopulationLineChart,
@@ -24,11 +25,17 @@ export const CountryPopulation = () => {
 
   return (
     <>
-      {!state.countryData.country && (
-        <p className={styles["country-population__instructions"]}>
+      {!state.countryData.country && !state.loading && (
+        <div className={styles["country-population__instructions"]}>
           Enter a country into the input to find it&apos;s population (e.g
           &quot;Nigeria&quot;).
-        </p>
+        </div>
+      )}
+
+      {state.loading && (
+        <div className={styles["country-population__loading"]}>
+          <LoadingIndicator />
+        </div>
       )}
       {state.errorMessage.length > 0 ? (
         <h1>Error: {state.errorMessage}</h1>

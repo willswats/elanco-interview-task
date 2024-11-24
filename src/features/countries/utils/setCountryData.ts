@@ -16,6 +16,7 @@ export const setCountryData = async ({
 }: setWeatherData) => {
   try {
     resetCountryData({ dispatch });
+    dispatch({ type: "set-loading", payload: true });
 
     searchValue = searchValue.toLowerCase();
     const countryData = await fetchWithCountry({
@@ -43,4 +44,5 @@ export const setCountryData = async ({
     const error = e as Error;
     dispatch({ type: "set-error-message", payload: error.message });
   }
+  dispatch({ type: "set-loading", payload: false });
 };
