@@ -53,8 +53,8 @@ export const CountryPopulation = () => {
               <Image
                 className={styles["country-population__flag"]}
                 src={state.countryData.flag}
-                width={200}
-                height={100}
+                width={0}
+                height={0}
                 alt="Flag"
                 priority={true}
               />
