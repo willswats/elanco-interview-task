@@ -21,6 +21,14 @@
   margin-right: 0.25rem;
 }
 
+.country-population__instructions {
+  margin-top: 1rem;
+  padding: 1rem;
+  font-size: 1.5rem;
+  background-color: #2a2a2a;
+  border-radius: 25px;
+}
+
 .country-population__country-end {
   display: flex;
   justify-content: flex-end;

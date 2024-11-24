@@ -24,6 +24,12 @@ export const CountryPopulation = () => {
 
   return (
     <>
+      {!state.countryData.country && (
+        <p className={styles["country-population__instructions"]}>
+          Enter a country into the input to find it&apos;s population (e.g
+          &quot;Nigeria&quot;).
+        </p>
+      )}
       {state.errorMessage.length > 0 ? (
         <h1>Error: {state.errorMessage}</h1>
       ) : (
