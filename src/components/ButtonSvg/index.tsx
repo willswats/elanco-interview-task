@@ -2,14 +2,14 @@ import { MouseEvent } from "react";
 
 import styles from "./styles.module.css";
 
-interface SvgButtonProps {
+interface ButtonSvg {
   svg: JSX.Element;
   clickHandler?: (event: MouseEvent) => void;
 }
 
-export const SvgButton = ({ svg, clickHandler }: SvgButtonProps) => {
+export const ButtonSvg = ({ svg, clickHandler }: ButtonSvg) => {
   return (
-    <button onClick={clickHandler} className={styles["svg-button"]}>
+    <button onClick={clickHandler} className={styles["button-svg"]}>
       {svg}
     </button>
   );

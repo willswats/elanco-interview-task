@@ -1,14 +1,12 @@
 "use client";
 import Image from "next/image";
-import { LoadingIndicator } from "@/components";
+import { LoadingIndicator, SvgUserLine } from "@/components";
 import {
   useCountryContext,
   CountryPopulationLineChart,
 } from "@/features/countries";
 
 import styles from "./styles.module.css";
-
-import UserLine from "public/assets/user-line.svg";
 
 export const CountryPopulation = () => {
   const { state } = useCountryContext();
@@ -41,7 +39,7 @@ export const CountryPopulation = () => {
             <section>
               <h1>{state.countryData.country}</h1>
               <p>
-                <UserLine />
+                <SvgUserLine />
                 {populationCounts[
                   populationCounts.length - 1
                 ].value.toLocaleString()}
