@@ -28,7 +28,7 @@ export const CountryPopulation = () => {
       )}
 
       {state.errorMessage.length > 0 && (
-        <section className={styles["country-population__instructions"]}>
+        <section className={styles["country-population__text"]}>
           Error: {state.errorMessage}
         </section>
       )}
