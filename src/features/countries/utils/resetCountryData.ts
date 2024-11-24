@@ -10,6 +10,7 @@ export const resetCountryData = ({ dispatch }: resetWeatherData) => {
     type: "set-country-data",
     payload: {
       country: "",
+      flag: "",
       populationCounts: [],
     },
   });
