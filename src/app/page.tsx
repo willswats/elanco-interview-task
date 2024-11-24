@@ -5,7 +5,9 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <div className={styles["home"]}>
-      <CountrySearch />
+      <div className={styles["home__search"]}>
+        <CountrySearch />
+      </div>
       <CountryPopulation />
     </div>
   );

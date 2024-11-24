@@ -11,12 +11,12 @@ a {
 }
 
 body {
-  color: #9fadbd;
-  background-color: #0b1622;
+  color: #fff;
+  background-color: #1a1a1a;
 }
 
 button {
-  color: #9fadbd;
+  color: #fff;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -28,7 +28,7 @@ input {
 }
 
 svg path {
-  fill: #9fadbd;
+  fill: #fff;
 }
 
 input[type="number"] {

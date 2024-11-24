@@ -7,7 +7,7 @@
 }
 
 .svg-button:hover svg path {
-  fill: #37a1d9;
+  fill: #ffa500;
 }
 
 @media screen and (max-width: 768px) {

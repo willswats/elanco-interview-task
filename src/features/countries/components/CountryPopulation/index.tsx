@@ -1,14 +1,13 @@
 "use client";
 import Image from "next/image";
-import { Statistic } from "@/components";
 import {
   useCountryContext,
   CountryPopulationLineChart,
 } from "@/features/countries";
 
-import SvgSearch from "public/assets/search-line.svg";
-
 import styles from "./styles.module.css";
+
+import UserLine from "public/assets/user-line.svg";
 
 export const CountryPopulation = () => {
   const { state } = useCountryContext();
@@ -34,22 +33,27 @@ export const CountryPopulation = () => {
             state.countryData.populationCounts.length > 0 && (
               <>
                 <div className={styles["country-population__country"]}>
-                  <h1>{state.countryData.country}</h1>
-                  <Image
-                    src={state.countryData.flag}
-                    width={200}
-                    height={100}
-                    alt="Flag"
-                    priority={true}
-                  />
+                  <div>
+                    <h1>{state.countryData.country}</h1>
+                    <p>
+                      <UserLine />
+                      {lastPopulationCountsValue}
+                    </p>
+                    Population in latest year ({lastPopulationCountsYear})
+                  </div>
+                  <div className={styles["country-population__country-end"]}>
+                    <Image
+                      className={styles["country-population__flag"]}
+                      src={state.countryData.flag}
+                      width={200}
+                      height={100}
+                      alt="Flag"
+                      priority={true}
+                    />
+                  </div>
                 </div>
-                <Statistic
-                  statistic={lastPopulationCountsValue}
-                  text={`Population in latest year (${lastPopulationCountsYear})`}
-                  svg={<SvgSearch />}
-                />
                 <CountryPopulationLineChart
-                  label="Population Counts"
+                  label="Population"
                   populationCounts={state.countryData.populationCounts}
                 />
               </>

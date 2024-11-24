@@ -22,7 +22,7 @@ export const CountryPopulationLineChart = ({
 
   return (
     <div className={styles["line-chart-population-counts"]}>
-      <h2>Population Counts</h2>
+      <h2>Population</h2>
       <LineChart label={label} labelArray={labelArray} dataArray={dataArray} />
     </div>
   );

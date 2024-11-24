@@ -1,6 +1,32 @@
 .country-population__country {
-  background-color: #151f2e;
+  display: flex;
+  background-color: #2a2a2a;
   border-radius: 25px;
   margin: 1rem 0;
   padding: 1rem;
+}
+
+.country-population__country h1 {
+  text-decoration: underline;
+}
+
+.country-population__country p {
+  font-size: 1.5rem;
+  color: #ffa500;
+}
+
+.country-population__country svg {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.25rem;
+}
+
+.country-population__country-end {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+.country-population__flag {
+  border-radius: 25px;
 }
