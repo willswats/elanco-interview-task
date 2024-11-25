@@ -11,7 +11,8 @@ export const CountrySearch = () => {
   const searchSubmitHandler = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (searchValue.length > 0) {
+    const regex = /[^A-Za-z\s]/g; // Matches any character that is not in the alphabet or not a whitespace character
+    if (searchValue.length > 0 && searchValue.match(regex) === null) {
       setCountryData({ searchValue, dispatch });
     }
     setSearchValue("");
