@@ -2,8 +2,6 @@
 
 A task that I was assigned for an interview with Elanco.
 
-[elanco-interview-task.vercel.app](https://elanco-interview-task.vercel.app)
-
 ## Table of Contents
 
 <!--toc:start-->
